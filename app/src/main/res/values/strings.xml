@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BaiterekApp</string>
+    <string name="welcome_to">Welcome to</string>
+    <string name="tap_anywhere_to_start">Tap anywhere to start…</string>
 </resources>
