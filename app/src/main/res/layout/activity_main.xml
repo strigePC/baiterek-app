@@ -35,8 +35,7 @@
         android:textColor="@color/lightGrey"
         android:text="@string/tap_anywhere_to_start"
         android:textSize="24sp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true" />
 
 
     <ImageView
