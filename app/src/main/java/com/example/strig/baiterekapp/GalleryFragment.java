@@ -1,6 +1,7 @@
 package com.example.strig.baiterekapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public class GalleryFragment extends Fragment {
+public class GalleryFragment extends Fragment implements View.OnClickListener {
 
     ImageView image;
 
@@ -32,6 +33,13 @@ public class GalleryFragment extends Fragment {
             image = view.findViewById(R.id.gallery_image);
 
             image.setImageResource(R.drawable.baiterek1);
+            image.setOnClickListener(this);
         }
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent i = new Intent(getActivity(), OpenGlActivity.class);
+        startActivity(i);
     }
 }
