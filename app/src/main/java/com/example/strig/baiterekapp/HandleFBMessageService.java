@@ -3,7 +3,10 @@ package com.example.strig.baiterekapp;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 
@@ -34,6 +37,14 @@ public class HandleFBMessageService extends FirebaseMessagingService {
 
         NotificationChannel channel;
         Notification.Builder nb;
+
+        Intent i = new Intent(this, DescriptionActivity.class);
+        TaskStackBuilder t = TaskStackBuilder.create(this);
+        t.addParentStack(MainActivity.class);
+        t.addNextIntent(i);
+        PendingIntent p = t.getPendingIntent(0,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             channel = new NotificationChannel("default",
                     "Firebase Activity", NotificationManager.IMPORTANCE_DEFAULT);
@@ -51,6 +62,7 @@ public class HandleFBMessageService extends FirebaseMessagingService {
                 .setContentText(rn.getBody())
                 .setSmallIcon(android.R.drawable.ic_dialog_email)
                 .setAutoCancel(true)
+                .setContentIntent(p)
                 .build();
 
         manager.notify(1, n);
