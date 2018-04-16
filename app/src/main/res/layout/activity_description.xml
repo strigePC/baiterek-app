@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".DescriptionActivity"
     android:orientation="vertical"
-    android:weightSum="10"
-    android:background="@color/colorAccent">
+    android:weightSum="10">
 
     <fragment
         android:id="@+id/gallery"
@@ -44,5 +43,6 @@
         android:layout_gravity="center"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/show_on_map"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@drawable/baiterek_button"/>
 </LinearLayout>
