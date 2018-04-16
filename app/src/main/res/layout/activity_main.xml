@@ -1,18 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main_layout"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/welcome_to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="@string/welcome_to"
+        android:textColor="@color/black"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/welcome_to"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tap_to_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/astana_image"
+        android:textColor="@color/lightGrey"
+        android:text="@string/tap_anywhere_to_start"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <ImageView
+        android:id="@+id/astana_image"
+        android:layout_width="match_parent"
+        android:layout_height="205dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_astana"
+        android:tint="@color/lightGrey" />
+
+</RelativeLayout>
