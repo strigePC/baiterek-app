@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -33,7 +34,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location myLocation, baiLocation;
     private LatLng user, baiterek;
     private String TAG = "MAPS_ACTIVITY_TAG";
-    private double distance;
+    private int distance;
+    private TextView distanceTextView;
 
 
     @Override
@@ -42,6 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Log.e(TAG, "onCreate: ");
         setContentView(R.layout.activity_maps);
+        distanceTextView = findViewById(R.id.distance_tv);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -85,12 +88,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         myLocation.setLatitude(user.latitude);
                         myLocation.setLongitude(user.longitude);
 
-
                     }
                     mMap.addMarker(new MarkerOptions().position(user).title("Marker at your location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
-                    distance = myLocation.distanceTo(baiLocation);
-                    Toast.makeText(locService, "Distance from Baiterek to you is "+distance+" meters", Toast.LENGTH_LONG).show();
+                    distance = (int) myLocation.distanceTo(baiLocation);
+                    distanceTextView.setText(String.format("Distance from Baiterek to your location is approximately %s meters", distance));
                     Log.e(TAG, "run: my location" + myLocation);
 
                 } else{
