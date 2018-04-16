@@ -1,4 +1,4 @@
-package com.example.strig.baiterekapp;
+package com.example.strig.baiterekapp.fragments;
 
 
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.strig.baiterekapp.OpenGlActivity;
+import com.example.strig.baiterekapp.R;
 
 public class GalleryFragment extends Fragment implements View.OnClickListener {
 
@@ -32,7 +35,7 @@ public class GalleryFragment extends Fragment implements View.OnClickListener {
         if (view != null) {
             image = view.findViewById(R.id.gallery_image);
 
-            image.setImageResource(R.drawable.baiterek1);
+            image.setImageResource(R.drawable.baiterek6);
             image.setOnClickListener(this);
         }
     }

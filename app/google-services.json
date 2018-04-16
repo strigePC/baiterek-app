@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "719434243986",
+    "firebase_url": "https://baiterekapp.firebaseio.com",
+    "project_id": "baiterekapp",
+    "storage_bucket": "baiterekapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719434243986:android:dcfd4d0ae81b8e1d",
+        "android_client_info": {
+          "package_name": "com.example.strig.baiterekapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719434243986-ts72r4v292018qdghlvn3vcunkl7oaiu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.strig.baiterekapp",
+            "certificate_hash": "420410b1523b95c1e3f77f5de6fd0fa2be0651ab"
+          }
+        },
+        {
+          "client_id": "719434243986-ab017cgau2r048um1t3oociln5cagcvc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0QTx4pMNc1BbsWWNoRzHSHHzUF3uvK2k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719434243986-ab017cgau2r048um1t3oociln5cagcvc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

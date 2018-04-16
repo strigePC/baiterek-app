@@ -5,25 +5,44 @@
     android:layout_height="match_parent"
     tools:context=".DescriptionActivity"
     android:orientation="vertical"
-    android:weightSum="10">
+    android:weightSum="10"
+    android:background="@color/colorAccent">
 
     <fragment
         android:id="@+id/gallery"
-        android:name="com.example.strig.baiterekapp.GalleryFragment"
+        android:name="com.example.strig.baiterekapp.fragments.GalleryFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4" />
 
     <TextView
+        android:id="@+id/description_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/description_title"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <fragment
+        android:id="@+id/description"
+        android:name="com.example.strig.baiterekapp.fragments.DescriptionFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:text="@string/description"/>
+        android:layout_marginLeft="8dp"
+        android:layout_weight="5"
+        android:layout_marginStart="8dp" />
 
     <Button
         android:id="@+id/map_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="@string/show_on_map"
-        android:layout_gravity="center"/>
+        android:textStyle="bold" />
 </LinearLayout>
