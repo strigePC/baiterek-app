@@ -14,6 +14,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private static float speedCube = 0.5f; // rotational speed for cube
     private PhotoCube cube;     // (NEW)
     public static final String TAG = "GL_RENDER_TAG";
+    public float mAngleX = 0,mAngleY = 0;
+    public static boolean autoRotate=true;
 
     // Constructor
     public MyGLRenderer(Context context) {
@@ -64,17 +66,24 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onDrawFrame(GL10 gl) {
         // Clear color and depth buffers
-        Log.e(TAG, "onDrawFrame: ");
+        Log.e(TAG, "onDrawFrame: mAngleX "+mAngleY+", and mAngleY "+mAngleY);
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
         // ----- Render the Cube -----
         gl.glLoadIdentity();                  // Reset the model-view matrix
         gl.glTranslatef(0.0f, 0.0f, -6.0f);   // Translate into the screen
-        gl.glRotatef(angleCube, 0.15f, 1.0f, 0.3f); // Rotate
+        if (autoRotate){
+            gl.glRotatef(mAngleX, 0, 1.0f, 0f);
+            mAngleX += speedCube;
+            gl.glRotatef(mAngleY, 0.15f, 0, 0f);
+            mAngleY += speedCube;
+        } else {
+            gl.glRotatef(mAngleX,0.0f, 1.0f, 0.0f);
+            gl.glRotatef(mAngleY, 1.0f, 0.0f, 0.0f);// Rotate
+        }
         cube.draw(gl);
 
         // Update the rotational angle after each refresh.
-        angleCube += speedCube;
     }
 }
 
