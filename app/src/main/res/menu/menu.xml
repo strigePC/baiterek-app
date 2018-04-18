@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/leaderboard_item"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:orderInCategory="0"
+        android:title="@string/leaderboard"
+        app:showAsAction="ifRoom|withText" />
+</menu>

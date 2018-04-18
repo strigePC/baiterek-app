@@ -64,7 +64,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".LeaderboardActivity"></activity>
     </application>
 
 </manifest>
