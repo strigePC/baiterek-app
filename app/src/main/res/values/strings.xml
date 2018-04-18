@@ -52,6 +52,12 @@
     <string name="button">Button</string>
     <string name="question">Question</string>
     <string name="locating">locating</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="position">#</string>
+    <string name="name">Name</string>
+    <string name="result">Result</string>
+    <string name="leaderboard_header_text">Name\t\t\tScore</string>
+    <string name="leaderboard_entry_text">%s\t\t\t%s</string>
 
     <string-array name="quiz_correct_answers">
         <item>0</item>
