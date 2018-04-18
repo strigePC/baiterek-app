@@ -13,29 +13,32 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
+        android:fontFamily="@font/roboto"
         android:text="@string/welcome_to"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/welcome_to"
-        android:textColor="@color/black"/>
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="48sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tap_to_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/astana_image"
-        android:textColor="@color/lightGrey"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/roboto"
         android:text="@string/tap_anywhere_to_start"
-        android:textSize="24sp"
-        android:layout_centerHorizontal="true" />
+        android:textColor="@color/lightGrey"
+        android:textSize="24sp" />
 
 
     <ImageView

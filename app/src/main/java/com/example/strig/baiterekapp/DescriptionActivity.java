@@ -12,6 +12,7 @@ public class DescriptionActivity extends AppCompatActivity {
 
     GalleryFragment gallery;
     Button map_button;
+    Button quiz_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class DescriptionActivity extends AppCompatActivity {
 
         gallery = new GalleryFragment();
         map_button = findViewById(R.id.map_button);
+        quiz_button = findViewById(R.id.quiz_button);
 
         map_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,5 +30,14 @@ public class DescriptionActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        quiz_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DescriptionActivity.this, QuizActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 }

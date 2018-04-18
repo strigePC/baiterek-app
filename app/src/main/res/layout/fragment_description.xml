@@ -20,7 +20,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_label_location"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -29,7 +29,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_location"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -43,7 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_label_constructed"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -52,7 +52,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_constructed"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -66,7 +66,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_label_info"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -75,7 +75,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_info"
                 android:textColor="@color/black" />
         </LinearLayout>
