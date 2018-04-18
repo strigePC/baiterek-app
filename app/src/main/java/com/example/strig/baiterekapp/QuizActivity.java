@@ -4,32 +4,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class QuizActivity extends AppCompatActivity {
-    int progress = 0;
-    int userAnswer;
-    int userScore = 0;
+    int progress = 0, userAnswer, userScore = 0;
 
     private List<Question> questions;
     private List<String> correctAnswers;
 
-    TextView questionTitle;
-    TextView question;
+    TextView questionTitle, question;
     List<Button> answerButtons;
-    Button answerButton1;
-    Button answerButton2;
-    Button answerButton3;
+    Button answerButton1, answerButton2, answerButton3;
 
-    EditText username;
+    EditText usernameEditText;
+    String username;
+    Map <String, Long> map = new HashMap<>();
+
+    public static final String TAG="QUIZ_ACTIVITY_TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +61,7 @@ public class QuizActivity extends AppCompatActivity {
 
         questionTitle = findViewById(R.id.question_title);
         question = findViewById(R.id.question);
-        username = findViewById(R.id.username);
+        usernameEditText = findViewById(R.id.username);
         answerButtons = new ArrayList<>();
         answerButton1 = findViewById(R.id.answer_1);
         answerButton2 = findViewById(R.id.answer_2);
@@ -61,6 +69,8 @@ public class QuizActivity extends AppCompatActivity {
         answerButtons.add(answerButton1);
         answerButtons.add(answerButton2);
         answerButtons.add(answerButton3);
+
+
 
         reloadAnswers();
     }
@@ -95,7 +105,7 @@ public class QuizActivity extends AppCompatActivity {
                         answerButton.setOnClickListener(null);
                     }
 
-                    new CountDownTimer(2000, 1000) {
+                    new CountDownTimer(1000, 1000) {
                         public void onTick(long millisUntilFinished) {
                         }
 
@@ -109,14 +119,36 @@ public class QuizActivity extends AppCompatActivity {
                                 for (Button answerButton : answerButtons) {
                                     answerButton.setVisibility(View.GONE);
                                 }
-                                username.setVisibility(View.VISIBLE);
+                                usernameEditText.setVisibility(View.VISIBLE);
                                 answerButtons.get(1).setVisibility(View.VISIBLE);
                                 answerButtons.get(1).setText(R.string.back_to_menu);
                                 answerButtons.get(1).setBackground(getResources().getDrawable(R.drawable.button_green));
                                 answerButtons.get(1).setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
-                                        if (!username.getText().toString().equals("")) {
+                                        username = usernameEditText.getText().toString();
+                                        if (!username.equals("")) {
+                                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                            DatabaseReference myRef = database.getReference("Quiz/"+username);
+                                            myRef.setValue(userScore);
+
+                                            DatabaseReference usersRef = database.getReference("Quiz");
+                                            usersRef.addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                                                        Log.e(TAG, "onDataChange: postsnapshop value "+postSnapshot.getValue());
+                                                        map.put(postSnapshot.getKey(), (long)postSnapshot.getValue());
+                                                    }
+                                                    Log.e(TAG, "Get Data"+map);
+
+                                                }
+
+                                                @Override
+                                                public void onCancelled(DatabaseError databaseError) {
+
+                                                }
+                                            });
                                             Intent i = new Intent(QuizActivity.this, DescriptionActivity.class);
                                             startActivity(i);
                                             Toast.makeText(QuizActivity.this, "Your result was saved", Toast.LENGTH_SHORT).show();
@@ -129,5 +161,7 @@ public class QuizActivity extends AppCompatActivity {
                 }
             });
         }
+
+
     }
 }
