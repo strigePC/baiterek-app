@@ -90,14 +90,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (serviceBound) {
                     Log.e(TAG, "run: service bound");
                     myLocation = locService.getInfo();
-//                    if (myLocation == null) {
-//                        user = new LatLng(51.0905, 71.3982);
-//                        myLocation = new Location("");
-//                        myLocation.setLatitude(user.latitude);
-//                        myLocation.setLongitude(user.longitude);
-//
-//                    }
                     if (myLocation!=null) {
+                        user = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
                         mMap.addMarker(new MarkerOptions().position(user).title("Marker at your location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
                         distance = (int) myLocation.distanceTo(baiLocation);
@@ -164,18 +158,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMyLocationButtonClick() {
         Log.e(TAG, "onMyLocationButtonClick: ");
-//        LatLng latLng = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        // Return false so that we don't consume the event and the default behavior still occurs
-        // (the camera animates to the user's current position).
         return false;
     }
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
-        Log.e(TAG, "onMyLocationClick: ");
-        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
-
+        Log.e(TAG, "onMyLocationClick: "+location);
     }
 
     @Override
