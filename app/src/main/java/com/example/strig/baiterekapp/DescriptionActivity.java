@@ -5,21 +5,30 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.strig.baiterekapp.fragments.GalleryFragment;
+import android.widget.ImageView;
 
 public class DescriptionActivity extends AppCompatActivity {
 
-    GalleryFragment gallery;
-    Button map_button;
-    Button quiz_button;
+    private Button map_button;
+    private Button quiz_button;
+    private ImageView image;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description);
 
-        gallery = new GalleryFragment();
+        image = findViewById(R.id.gallery_image);
+
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DescriptionActivity.this, OpenGlActivity.class);
+                startActivity(i);
+            }
+        });
+
         map_button = findViewById(R.id.map_button);
         quiz_button = findViewById(R.id.quiz_button);
 

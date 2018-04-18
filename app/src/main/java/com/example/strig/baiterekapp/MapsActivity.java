@@ -12,7 +12,10 @@ import android.os.IBinder;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +28,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
     private GoogleMap mMap;
     private ServiceConnection serviceConnection;
@@ -41,6 +44,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getActionBar()!=null){
+            Log.e(TAG, "onCreate: action bar not null");
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
 
         Log.e(TAG, "onCreate: ");
         setContentView(R.layout.activity_maps);
@@ -82,19 +90,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 if (serviceBound) {
                     Log.e(TAG, "run: service bound");
                     myLocation = locService.getInfo();
-                    if (myLocation == null) {
-                        user = new LatLng(51.0905, 71.3982);
-                        myLocation = new Location("");
-                        myLocation.setLatitude(user.latitude);
-                        myLocation.setLongitude(user.longitude);
-
+//                    if (myLocation == null) {
+//                        user = new LatLng(51.0905, 71.3982);
+//                        myLocation = new Location("");
+//                        myLocation.setLatitude(user.latitude);
+//                        myLocation.setLongitude(user.longitude);
+//
+//                    }
+                    if (myLocation!=null) {
+                        mMap.addMarker(new MarkerOptions().position(user).title("Marker at your location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
+                        distance = (int) myLocation.distanceTo(baiLocation);
+                        distanceTextView.setText(String.format("Distance from Baiterek to your location is approximately %s meters", distance));
+                        Log.e(TAG, "run: my location" + myLocation);
                     }
-                    mMap.addMarker(new MarkerOptions().position(user).title("Marker at your location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
-                    distance = (int) myLocation.distanceTo(baiLocation);
-                    distanceTextView.setText(String.format("Distance from Baiterek to your location is approximately %s meters", distance));
-                    Log.e(TAG, "run: my location" + myLocation);
-
                 } else{
                     Log.e(TAG, "run: NOT BOUND");
                 }
@@ -154,7 +163,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public boolean onMyLocationButtonClick() {
-        Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
+        Log.e(TAG, "onMyLocationButtonClick: ");
 //        LatLng latLng = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         // Return false so that we don't consume the event and the default behavior still occurs
@@ -169,4 +178,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

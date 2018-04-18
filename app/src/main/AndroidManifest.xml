@@ -37,8 +37,20 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".MapsActivity" />
-        <activity android:name=".OpenGlActivity" />
+        <activity
+            android:name=".MapsActivity"
+            android:parentActivityName=".DescriptionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.strig.baiterekapp.DescriptionActivity" />
+        </activity>
+        <activity
+            android:name=".OpenGlActivity"
+            android:parentActivityName=".DescriptionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.strig.baiterekapp.DescriptionActivity" />
+        </activity>
 
         <service android:name=".LocationService" />
         <service android:name=".HandleFBMessageService">

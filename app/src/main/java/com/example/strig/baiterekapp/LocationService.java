@@ -57,7 +57,7 @@ public class LocationService extends Service {
         if (permissionCheckFine == PackageManager.PERMISSION_GRANTED && permissionCheckCoarse == PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "onCreate: permission granted");
             locationManager.requestLocationUpdates(provider, 1000, 1, listener);
-
+            locationManager.getLastKnownLocation(provider);
         }
         Log.e(TAG, "onCreate: location"+loc);
     }
@@ -75,6 +75,7 @@ public class LocationService extends Service {
             public void onLocationChanged(Location location) {
                 Log.e(TAG, "onLocationChanged: "+String.valueOf (location));
                 loc = location;
+
 
             }
 
