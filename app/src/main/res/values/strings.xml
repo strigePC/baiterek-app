@@ -48,6 +48,7 @@
         <item>Aktobe</item>
     </string-array>
     <string name="back_to_menu">Back to Menu</string>
+    <string name="locating">locating</string>
 
     <string-array name="quiz_correct_answers">
         <item>0</item>
