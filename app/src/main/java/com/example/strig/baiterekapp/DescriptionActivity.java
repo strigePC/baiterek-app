@@ -63,7 +63,7 @@ public class DescriptionActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.leaderboard_item:
-                Intent i = new Intent(DescriptionActivity.this, LeaderboardActivity.class);
+                Intent i = new Intent(DescriptionActivity.this, ScoreboardActivity.class);
                 startActivity(i);
                 return true;
             default:

@@ -3,8 +3,10 @@ package com.example.strig.baiterekapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,7 +37,6 @@ public class QuizActivity extends AppCompatActivity {
 
     EditText usernameEditText;
     String username;
-    Map <String, Long> map = new HashMap<>();
 
     public static final String TAG="QUIZ_ACTIVITY_TAG";
 
@@ -70,7 +71,10 @@ public class QuizActivity extends AppCompatActivity {
         answerButtons.add(answerButton2);
         answerButtons.add(answerButton3);
 
-
+        if (getActionBar()!=null){
+            Log.e(TAG, "onCreate: action bar not null");
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         reloadAnswers();
     }
@@ -132,23 +136,7 @@ public class QuizActivity extends AppCompatActivity {
                                             DatabaseReference myRef = database.getReference("Quiz/"+username);
                                             myRef.setValue(userScore);
 
-                                            DatabaseReference usersRef = database.getReference("Quiz");
-                                            usersRef.addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                                                        Log.e(TAG, "onDataChange: postsnapshop value "+postSnapshot.getValue());
-                                                        map.put(postSnapshot.getKey(), (long)postSnapshot.getValue());
-                                                    }
-                                                    Log.e(TAG, "Get Data"+map);
 
-                                                }
-
-                                                @Override
-                                                public void onCancelled(DatabaseError databaseError) {
-
-                                                }
-                                            });
                                             Intent i = new Intent(QuizActivity.this, DescriptionActivity.class);
                                             startActivity(i);
                                             Toast.makeText(QuizActivity.this, "Your result was saved", Toast.LENGTH_SHORT).show();
@@ -163,5 +151,16 @@ public class QuizActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

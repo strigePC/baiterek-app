@@ -64,8 +64,20 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".QuizActivity" />
-        <activity android:name=".LeaderboardActivity"></activity>
+        <activity
+            android:name=".QuizActivity"
+            android:parentActivityName=".DescriptionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.strig.baiterekapp.DescriptionActivity" />
+        </activity>
+        <activity
+            android:name=".ScoreboardActivity"
+            android:parentActivityName=".DescriptionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.strig.baiterekapp.DescriptionActivity" />
+        </activity>
     </application>
 
 </manifest>
