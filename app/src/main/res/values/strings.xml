@@ -3,10 +3,8 @@
     <string name="welcome_to">Welcome to</string>
     <string name="tap_anywhere_to_start">Tap anywhere to start…</string>
     <string name="title_activity_maps">Map</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="show_on_map">Show on Map</string>
+    <string name="start_quiz">Start Quiz</string>
     <string name="description_title">General Info</string>
     <string name="description_text_label_location">Location:</string>
     <string name="description_text_label_constructed">Constructed:</string>
@@ -16,6 +14,46 @@
     <string name="description_text_info">The monument is meant to embody a folktale about a mythical tree of life and a magic bird of happiness: the bird, named Samruk, had laid its egg in the crevice between two branches of a poplar tree.
         The 105m (344.5 ft.) tall structure rises from a wide flat base within a raised plaza. It consists of a narrow cylindrical shaft, surrounded by white branch-like girders that flare out near the top, supporting a gold-mirrored 22 m diameter sphere. The base contains a ticket booth and exhibition space, with two lifts rising within the shaft to the observation deck within the \'egg\'. Entrances to the monument are sunk below eye level, reached by stairs from the surrounding plaza. (It\'s somewhat similar to the 1982 World\'s Fair Sunsphere in Knoxville, TN, USA.(266 ft.)
         The observation deck is 97 m above ground level, corresponding to 1997, the year that Astana became the nation's capital. It consists of two levels, one with 360 degree views of Astana and beyond, with a second, higher level, reached by a flight of stairs. The top level features a gilded hand print of the right hand of Nursultan Nazarbayev, the first President of the independent Republic of Kazakhstan, mounted in an ornate pedestal. A plaque invites visitors to place a hand in the imprint and make a wish. Alongside the handprint, and also oriented in the direction of the presidential palace, is a wooden sculpture of a globe and 16 radiating segments, commemorating the Congress of Leaders of World and Traditional Religions, held several times in Astana.</string>
-    <string name="baiterek">baiterek</string>
-    <string name="locating">Locating...</string>
+    <string name="question_title">Question #%d</string>
+    <string name="quiz_completed">Quiz completed!</string>
+    <string name="score_text">Your score is %d/%d</string>
+    <string name="question_1">What is the height of the Baiterek?</string>
+    <string-array name="question_1_answers">
+        <item>97m</item>
+        <item>150m</item>
+        <item>78m</item>
+    </string-array>
+    <string name="question_2">When Baiterek was built?</string>
+    <string-array name="question_2_answers">
+        <item>2010</item>
+        <item>2002</item>
+        <item>1998</item>
+    </string-array>
+    <string name="question_3">The monument was built as a symbol of transferring the capital. What was the previous capital?</string>
+    <string-array name="question_3_answers">
+        <item>Almaty</item>
+        <item>Kyzylorda</item>
+        <item>Kostanay</item>
+    </string-array>
+    <string name="question_4">Who designed the Baiterek?</string>
+    <string-array name="question_4_answers">
+        <item>Nursultan Nazarbayev</item>
+        <item>Yerbol Tleukanov</item>
+        <item>Akmurza Rustembekov</item>
+    </string-array>
+    <string name="question_5">There is a mini-copy of the Baiterek that was built in 2018. In which city it is located?</string>
+    <string-array name="question_5_answers">
+        <item>Karagandy</item>
+        <item>Kostanay</item>
+        <item>Aktobe</item>
+    </string-array>
+    <string name="back_to_menu">Back to Menu</string>
+
+    <string-array name="quiz_correct_answers">
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
 </resources>

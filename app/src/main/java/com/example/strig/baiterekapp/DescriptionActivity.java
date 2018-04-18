@@ -10,6 +10,7 @@ import android.widget.ImageView;
 public class DescriptionActivity extends AppCompatActivity {
 
     private Button map_button;
+    private Button quiz_button;
     private ImageView image;
 
 
@@ -29,6 +30,7 @@ public class DescriptionActivity extends AppCompatActivity {
         });
 
         map_button = findViewById(R.id.map_button);
+        quiz_button = findViewById(R.id.quiz_button);
 
         map_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +40,13 @@ public class DescriptionActivity extends AppCompatActivity {
             }
         });
 
+        quiz_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DescriptionActivity.this, QuizActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
-
 }
