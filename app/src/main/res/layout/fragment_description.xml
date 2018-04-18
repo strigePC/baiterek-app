@@ -23,14 +23,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_label_location"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_label_constructed"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -38,7 +39,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_label_info"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -52,27 +53,28 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             >
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_location"
                 android:textColor="@color/black" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-smallcaps"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_constructed"
                 android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="sans-serif-smallcaps"
                 android:autoSizeTextType="uniform"
+                android:fontFamily="@font/roboto"
                 android:text="@string/description_text_info"
-                android:textColor="@color/black"
-             />
+                android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
     <!--<LinearLayout-->
