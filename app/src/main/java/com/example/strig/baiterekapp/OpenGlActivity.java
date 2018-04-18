@@ -1,8 +1,10 @@
 package com.example.strig.baiterekapp;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 
 
@@ -22,7 +24,11 @@ public class OpenGlActivity extends AppCompatActivity {
         glView = new GLSurfaceView(this);
         mRenderer =new MyGLRenderer(this); // Allocate a GLSurfaceView
         glView.setRenderer(mRenderer); // Use a custom renderer
-        this.setContentView(glView);                // This activity sets to GLSurfaceView
+        this.setContentView(glView);
+        if (getActionBar()!=null){
+            Log.e(TAG, "onCreate: action bar not null");
+            getActionBar().setDisplayHomeAsUpEnabled(true);// This activity sets to GLSurfaceView
+        }
     }
 
 
@@ -63,5 +69,16 @@ public class OpenGlActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         glView.onResume();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

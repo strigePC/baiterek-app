@@ -5,28 +5,31 @@
     android:layout_height="match_parent"
     tools:context=".DescriptionActivity"
     android:orientation="vertical"
-    android:weightSum="10"
+    android:weightSum="13"
     android:background="@color/colorAccent">
 
-    <fragment
-        android:id="@+id/gallery"
-        android:name="com.example.strig.baiterekapp.fragments.GalleryFragment"
+    <ImageView
+        android:id="@+id/gallery_image"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4" />
+        android:layout_weight="6"
+        android:contentDescription="@string/baiterek"
+        android:src="@drawable/baiterek6"/>
+
 
     <TextView
         android:id="@+id/description_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/description_title"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="5dp"/>
 
     <fragment
         android:id="@+id/description"
@@ -34,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="8dp"
-        android:layout_weight="5"
+        android:layout_weight="6"
         android:layout_marginStart="8dp" />
 
     <Button
@@ -44,5 +47,11 @@
         android:layout_gravity="center"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/show_on_map"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+
+        />
 </LinearLayout>
