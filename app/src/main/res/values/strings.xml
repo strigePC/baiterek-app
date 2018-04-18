@@ -66,4 +66,8 @@
         <item>2</item>
         <item>1</item>
     </string-array>
+
+    <string-array name="scores_array">
+        <item>Name\t\t\t\t\t\t\t\t\tScore</item>
+    </string-array>
 </resources>
