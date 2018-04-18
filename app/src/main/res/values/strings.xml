@@ -51,6 +51,7 @@
     <string name="enter_your_name">Enter your name</string>
     <string name="button">Button</string>
     <string name="question">Question</string>
+    <string name="locating">locating</string>
 
     <string-array name="quiz_correct_answers">
         <item>0</item>
