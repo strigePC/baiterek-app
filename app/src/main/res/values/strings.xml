@@ -47,7 +47,10 @@
         <item>Kostanay</item>
         <item>Aktobe</item>
     </string-array>
-    <string name="back_to_menu">Back to Menu</string>
+    <string name="back_to_menu">Save result</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="button">Button</string>
+    <string name="question">Question</string>
 
     <string-array name="quiz_correct_answers">
         <item>0</item>
