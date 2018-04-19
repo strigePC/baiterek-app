@@ -1,4 +1,4 @@
-package com.example.strig.baiterekapp;
+package com.example.strig.baiterekapp.services;
 
 import android.util.Log;
 

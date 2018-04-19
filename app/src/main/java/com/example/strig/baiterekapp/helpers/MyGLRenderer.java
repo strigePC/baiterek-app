@@ -1,4 +1,4 @@
-package com.example.strig.baiterekapp;
+package com.example.strig.baiterekapp.helpers;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -20,7 +20,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     // Constructor
     public MyGLRenderer(Context context) {
         Log.e(TAG, "MyGLRenderer: ");
-        cube = new PhotoCube(context);    // (NEW)
+        cube = new PhotoCube(context);    //
     }
 
     // Call back when the surface is first created or re-created.
@@ -35,9 +35,9 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         gl.glShadeModel(GL10.GL_SMOOTH);   // Enable smooth shading of color
         gl.glDisable(GL10.GL_DITHER);      // Disable dithering for better performance
 
-        // Setup Texture, each time the surface is created (NEW)
-        cube.loadTexture(gl);             // Load images into textures (NEW)
-        gl.glEnable(GL10.GL_TEXTURE_2D);  // Enable texture (NEW)
+        // Setup Texture, each time the surface is created
+        cube.loadTexture(gl);             // Load images into textures
+        gl.glEnable(GL10.GL_TEXTURE_2D);  // Enable texture
     }
 
     // Call back after onSurfaceCreated() or whenever the window's size changes.
@@ -58,8 +58,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         gl.glMatrixMode(GL10.GL_MODELVIEW);  // Select model-view matrix
         gl.glLoadIdentity();
-        // NO CHANGE - SKIP
-//      ......
+
     }
 
     // Call back to draw the current frame.
@@ -72,6 +71,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         // ----- Render the Cube -----
         gl.glLoadIdentity();                  // Reset the model-view matrix
         gl.glTranslatef(0.0f, 0.0f, -6.0f);   // Translate into the screen
+        // Update the rotational angle after each refresh.
         if (autoRotate){
             gl.glRotatef(mAngleX, 0, 1.0f, 0f);
             mAngleX += speedCube;
@@ -83,7 +83,6 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         }
         cube.draw(gl);
 
-        // Update the rotational angle after each refresh.
     }
 }
 

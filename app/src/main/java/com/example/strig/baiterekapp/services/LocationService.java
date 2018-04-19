@@ -1,4 +1,4 @@
-package com.example.strig.baiterekapp;
+package com.example.strig.baiterekapp.services;
 
 import android.Manifest;
 import android.app.Service;
@@ -15,10 +15,6 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
 
 
 public class LocationService extends Service {
@@ -38,7 +34,7 @@ public class LocationService extends Service {
 
     public class LocationServiceBinder extends Binder {
 
-        LocationService getMyService () {
+        public LocationService getMyService() {
             return LocationService.this ;
         }
     }

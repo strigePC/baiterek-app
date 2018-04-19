@@ -1,4 +1,4 @@
-package com.example.strig.baiterekapp;
+package com.example.strig.baiterekapp.fragments;
 
 import android.app.ListFragment;
 import android.os.Bundle;

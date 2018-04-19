@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 
+import com.example.strig.baiterekapp.helpers.MyGLRenderer;
+
 
 public class OpenGlActivity extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class OpenGlActivity extends AppCompatActivity {
     private final float TOUCH_SCALE_FACTOR = 180.0f / 320;
     MyGLRenderer mRenderer;
 
-    // Call back when the activity is started, to initialize the view
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.e(TAG, "onCreate: ");

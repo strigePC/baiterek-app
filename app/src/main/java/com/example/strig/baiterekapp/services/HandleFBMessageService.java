@@ -1,4 +1,4 @@
-package com.example.strig.baiterekapp;
+package com.example.strig.baiterekapp.services;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 
+import com.example.strig.baiterekapp.DescriptionActivity;
+import com.example.strig.baiterekapp.MainActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

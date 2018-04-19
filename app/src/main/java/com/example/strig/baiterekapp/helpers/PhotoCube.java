@@ -1,4 +1,4 @@
-package com.example.strig.baiterekapp;
+package com.example.strig.baiterekapp.helpers;
 
 
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.opengl.GLUtils;
 import android.util.Log;
+
+import com.example.strig.baiterekapp.R;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
