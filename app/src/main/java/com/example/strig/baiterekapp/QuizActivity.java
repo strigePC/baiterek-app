@@ -127,7 +127,7 @@ public class QuizActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
                                         username = usernameEditText.getText().toString();
-                                        if (!username.isEmpty()) {
+                                        if (!username.trim().isEmpty()) {
                                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                                             DatabaseReference myRef = database.getReference("Quiz/"+username);
                                             myRef.setValue(userScore);
