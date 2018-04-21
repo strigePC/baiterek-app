@@ -14,9 +14,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,23 +26,31 @@ import java.util.Map;
 public class ScoreboardFragment extends ListFragment {
     public static final String TAG="LEADER_FRAGMENT_TAG";
     Map <String, Long> map = new HashMap<>();
+    private ArrayList<String> users= new ArrayList<>();
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final ArrayAdapter<String> adapter = new  ArrayAdapter <>(getActivity(),
+                android.R.layout.simple_list_item_1 ,users);
+        setListAdapter(adapter);
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference usersRef = database.getReference("Quiz");
+        Query usersRef = database.getReference("Quiz").orderByValue();
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     Log.e(TAG, "onDataChange: postsnapshop value "+postSnapshot.getValue());
-                    map.put(postSnapshot.getKey(), (long)postSnapshot.getValue());
+                    users.add(postSnapshot.getKey()+" - "+postSnapshot.getValue());
+                    Collections.reverse(users);
+                    adapter.notifyDataSetChanged();
+
                 }
                 Log.e(TAG, "Get Data"+map);
-                populateLeaderboard(map);
 
 
             }
@@ -50,27 +60,13 @@ public class ScoreboardFragment extends ListFragment {
 
             }
         });
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.e(TAG, "onCreateView: ");
-//        entries = getView().findViewById(R.id.leadeboard_entries);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    public void populateLeaderboard(Map<String, Long> map) {
-        Log.e(TAG, "populateLeaderboard: ");
-        ArrayList<String> users = new ArrayList<String>();
-        for (Map.Entry<String, Long> entry : map.entrySet()) {
-            Log.e(TAG, "populateLeaderboard: ");
-            users.add(entry.getKey()+" "+entry.getValue());
-
-//            entries.setText(entries.getText().toString() + "\n"
-//                    + String.format(getResources().getString(R.string.leaderboard_entry_text), entry.getKey(), String.valueOf(entry.getValue())));
-        }
-        ArrayAdapter<String> adapter = new  ArrayAdapter <String>(getActivity(),
-                android.R.layout.simple_list_item_1 ,users);
-        setListAdapter(adapter);
-    }
 }

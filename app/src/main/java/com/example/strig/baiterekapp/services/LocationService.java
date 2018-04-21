@@ -46,7 +46,6 @@ public class LocationService extends Service {
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         String provider = locationManager.getBestProvider(new Criteria(), true);
-//        String provider = LocationManager.NETWORK_PROVIDER;
         Log.e(TAG, "onCreate: location provider - "+provider);
         int permissionCheckFine = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
         int permissionCheckCoarse = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
