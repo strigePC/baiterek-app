@@ -25,7 +25,6 @@ import java.util.Map;
 
 public class ScoreboardFragment extends ListFragment {
     public static final String TAG="LEADER_FRAGMENT_TAG";
-    Map <String, Long> map = new HashMap<>();
     private ArrayList<String> users= new ArrayList<>();
 
 
@@ -46,13 +45,9 @@ public class ScoreboardFragment extends ListFragment {
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     Log.e(TAG, "onDataChange: postsnapshop value "+postSnapshot.getValue());
                     users.add(postSnapshot.getKey()+" - "+postSnapshot.getValue());
-                    Collections.reverse(users);
                     adapter.notifyDataSetChanged();
-
                 }
-                Log.e(TAG, "Get Data"+map);
-
-
+                Collections.reverse(users);
             }
 
             @Override
